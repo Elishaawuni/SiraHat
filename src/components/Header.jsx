@@ -98,9 +98,9 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <User className="w-6 h-6" />
-                </Link>
+      </Link>
               </div>
-            </nav>
+      </nav>
           </div>
         )}
       </div>

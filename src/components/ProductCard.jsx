@@ -337,8 +337,8 @@ export default function ProductCard({ product, onQuickView }) {
               </button>
             </div>
           </div>
-        </CardContent>
-      </Card>
+      </CardContent>
+    </Card>
 
       {/* QuickView Modal */}
       {showQuickView && (

@@ -27,11 +27,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="pt-4">
-                <Link to="/products">
+          <Link to="/products">
                   <button className="bg-green-700 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-green-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Shop Now
                   </button>
-                </Link>
+          </Link>
               </div>
             </div>
 
