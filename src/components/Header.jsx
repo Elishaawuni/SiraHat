@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
-import logo from '../assets/Images/Sirahat_logo_new.png';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +22,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20 md:h-24 lg:h-28">
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src={logo} 
+              src="https://lh3.googleusercontent.com/d/1sfVWXu0iICHglrKlUgF59UP-Fw8lSioI=w400"
               alt="Sirahat Logo" 
               className="h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28 xl:h-32 transition-all duration-300"
             />

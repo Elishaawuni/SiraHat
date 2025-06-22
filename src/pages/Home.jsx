@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel";
-import HomeImage from "../assets/Images/Home-image.jpg";
 
 export default function Home() {
   return (
@@ -40,7 +39,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-green-200 rounded-2xl transform rotate-3 scale-105"></div>
               <div className="relative w-full h-full max-w-lg">
                 <img 
-                  src={HomeImage} 
+                  src="https://lh3.googleusercontent.com/d/1mj4s8ao_GCsFnuJ1weL4nRiWFimNlFxo=w800"
                   alt="SiraHat Product" 
                   className="w-full h-full object-cover rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500"
                 />

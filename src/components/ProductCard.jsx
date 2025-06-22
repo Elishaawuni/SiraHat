@@ -2,39 +2,13 @@ import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, ShoppingCart, Eye, X } from "lucide-react";
 
-// Import product images
-import basket1 from "../assets/Images/basket1.jpg";
-import stackedHats from "../assets/Images/stacked-hats.jpg";
-import basket3 from "../assets/Images/basket3.jpg";
-import basket4 from "../assets/Images/basket4.jpg";
-import basket5 from "../assets/Images/basket5.jpg";
-import basket6 from "../assets/Images/basket6.jpg";
-import basket7 from "../assets/Images/basket7.jpg";
-import basket8 from "../assets/Images/basket8.jpg";
-import basket9 from "../assets/Images/basket9.jpg";
-import basket10 from "../assets/Images/basket10.jpg";
-import leatherBag from "../assets/Images/leather-bag.jpg";
-import leatherHandBag from "../assets/Images/leather-hand-bag.jpg";
-import BigBasket from "../assets/Images/BigBasket1.jpg";
-import juteBag3 from "../assets/Images/jute-bag3.jpg";
-import purseWhite from "../assets/Images/purse-white.jpg";
-import purseWhite2 from "../assets/Images/purse-white2.jpg";
-import niceBasket1 from "../assets/Images/nice-basket1.jpg";
-import niceBasket2 from "../assets/Images/nice-basket2.jpg";
-import niceBasketPack from "../assets/Images/nice-basket-pack.jpg";
-import laundryBasket from "../assets/Images/laundry-basket .jpg";
-import leatherBag13 from "../assets/Images/leather-bag-13.jpg";
-import leatherBag14 from "../assets/Images/leather-bag-14.jpg";
-import tabletBag from "../assets/Images/Tablet-bag.jpg";
-import tabletBag2 from "../assets/Images/Tablet-bag2.jpg";
-
-// Product data
+// Product data with Google Drive images
 export const products = [
   {
     id: 1,
     name: "Classic Straw Basket",
     price: "$45.00",
-    image: basket1,
+    image: "https://drive.google.com/thumbnail?id=1FGwLGgnudvlbmCBAK8Y0ZwjIuYaj86ct&sz=w800",
     category: "Baskets",
     description: "Handwoven straw basket, perfect for beach days and picnics"
   },
@@ -42,7 +16,7 @@ export const products = [
     id: 2,
     name: "Hand Woven Straw Hat",
     price: "$65.00",
-    image: stackedHats,
+    image: "https://drive.google.com/thumbnail?id=1zOiHgredrP4gEcjm3qYpT7Gj1Ybhnt6e&sz=w800",
     category: "Hats",
     description: "Elegant eco friendly straw hat. Multi-purpose hat for all occasions"
   },
@@ -50,7 +24,7 @@ export const products = [
     id: 3,
     name: "Round Beach Basket",
     price: "$55.00",
-    image: basket3,
+    image: "https://drive.google.com/thumbnail?id=1RDoYL6w5upW0bKr1fceTPgdqeuUvruNu&sz=w800",
     category: "Baskets",
     description: "Perfect companion for your beach adventures"
   },
@@ -58,7 +32,7 @@ export const products = [
     id: 4,
     name: "Premium Leather Bag",
     price: "$120.00",
-    image: leatherBag,
+    image: "https://drive.google.com/thumbnail?id=1Pjkyee6D-mtSR6y6qRYG05YkucPZGsB_&sz=w800",
     category: "Bags",
     description: "Handcrafted leather bag with premium finish"
   },
@@ -66,7 +40,7 @@ export const products = [
     id: 5,
     name: "Designer Hand Bag",
     price: "$150.00",
-    image: leatherHandBag,
+    image: "https://drive.google.com/thumbnail?id=1LXAjx3OD4Br4XtiNmWSP-k8hQAF0DHuF&sz=w800",
     category: "Bags",
     description: "Elegant leather handbag for any occasion"
   },
@@ -74,7 +48,7 @@ export const products = [
     id: 6,
     name: "Eco Straw Basket",
     price: "$35.00",
-    image: BigBasket,
+    image: "https://drive.google.com/thumbnail?id=1EXHeWvZv-6Ln1jVjak3uQsTYyIplNmWv&sz=w800",
     category: "Baskets",
     description: "Sustainable straw basket for everyday use"
   },
@@ -82,7 +56,7 @@ export const products = [
     id: 7,
     name: "Stylish Jute Tote",
     price: "$40.00",
-    image: juteBag3,
+    image: "https://drive.google.com/thumbnail?id=1nrJlHv4sxzCpcrzpXj1E0wv8bH5XlF81&sz=w800",
     category: "Bags",
     description: "Versatile jute tote bag with modern design"
   },
@@ -90,7 +64,7 @@ export const products = [
     id: 8,
     name: "Elegant Purse",
     price: "$85.00",
-    image: purseWhite,
+    image: "https://drive.google.com/thumbnail?id=1zqg6VrmBWBMCCy6NEVJxBYIJ6E2FO_Z3&sz=w800",
     category: "Accessories",
     description: "Sophisticated white purse for special occasions"
   },
@@ -98,7 +72,7 @@ export const products = [
     id: 9,
     name: "Multi-coloured Basket",
     price: "$95.00",
-    image: basket9,
+    image: "https://drive.google.com/thumbnail?id=1B0JkNdstnbwDPMbYqxI6lS-b2sDy5dvg&sz=w800",
     category: "Baskets",
     description: "Luxurious Multi-coloured Basketwith premium details"
   },
@@ -106,7 +80,7 @@ export const products = [
     id: 10,
     name: "Storage Basket Set",
     price: "$75.00",
-    image: basket4,
+    image: "https://drive.google.com/thumbnail?id=1_GrICZrcQ5YFxd3bXlrRYlZz5recsnla&sz=w800",
     category: "Baskets",
     description: "Set of matching storage baskets for home organization"
   },
@@ -114,7 +88,7 @@ export const products = [
     id: 11,
     name: "Premium Laundry Basket",
     price: "$85.00",
-    image: laundryBasket,
+    image: "https://drive.google.com/thumbnail?id=1A7ArmFRBI9zqaVxDyrCdY8p0hv2ZDe6j&sz=w800",
     category: "Baskets",
     description: "Large, sturdy laundry basket with comfortable handles"
   },
@@ -122,7 +96,7 @@ export const products = [
     id: 12,
     name: "Designer Tablet Bag",
     price: "$110.00",
-    image: tabletBag,
+    image: "https://drive.google.com/thumbnail?id=1LToea525_rF3428RtJRlc67GVfXA06tM&sz=w800",
     category: "Bags",
     description: "Stylish and protective bag for your tablet or laptop"
   },
@@ -130,7 +104,7 @@ export const products = [
     id: 13,
     name: "Vea Vintage Basket",
     price: "$95.00",
-    image: basket8,
+    image: "https://drive.google.com/thumbnail?id=1XrYJ7qBnGXgczBri1GeX7SyjWTnlKkhH&sz=w800",
     category: "Baskets",
     description: "Sleek and Vintage Basket for your home and mini shopping activities"
   },
@@ -138,7 +112,7 @@ export const products = [
     id: 14,
     name: "Luxury Leather Bag",
     price: "$180.00",
-    image: leatherBag13,
+    image: "https://drive.google.com/thumbnail?id=1lCmL7tjBZEu8o2FyIz51tzoZpGVkw_ke&sz=w800",
     category: "Bags",
     description: "Premium leather bag with exquisite craftsmanship"
   },
@@ -146,7 +120,7 @@ export const products = [
     id: 15,
     name: "Classic Leather Tote",
     price: "$160.00",
-    image: leatherBag14,
+    image: "https://drive.google.com/thumbnail?id=1ldGgQX5NEEstLXJmFdwxM5C0BCVtNNDN&sz=w800",
     category: "Bags",
     description: "Timeless leather tote bag for everyday elegance"
   },
@@ -154,7 +128,7 @@ export const products = [
     id: 16,
     name: "Premium Gift Basket",
     price: "$90.00",
-    image: niceBasket1,
+    image: "https://drive.google.com/thumbnail?id=17XjtHX3q4IWLgofmtd3B1VD_OanC8br9&sz=w800",
     category: "Baskets",
     description: "Beautiful gift basket perfect for special occasions"
   },
@@ -162,7 +136,7 @@ export const products = [
     id: 17,
     name: "Artisan Storage Basket",
     price: "$70.00",
-    image: niceBasket2,
+    image: "https://drive.google.com/thumbnail?id=1dP25IALcmKmerHv07XQHkuM5PFIGFHCd&sz=w800",
     category: "Baskets",
     description: "Handcrafted storage basket with traditional patterns"
   },
@@ -170,7 +144,7 @@ export const products = [
     id: 18,
     name: "Basket Gift Set",
     price: "$120.00",
-    image: niceBasketPack,
+    image: "https://drive.google.com/thumbnail?id=1Ox9_1_MuE53TfgaW2hsWVeNKjJTCIglc&sz=w800",
     category: "Baskets",
     description: "Set of three matching baskets for home organization"
   }

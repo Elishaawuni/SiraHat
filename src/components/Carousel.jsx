@@ -1,61 +1,57 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import images
-import model1 from "../assets/Images/model1.jpg";
-import model2 from "../assets/Images/model2.jpg";
-import model3 from "../assets/Images/model3.jpg";
-import model4 from "../assets/Images/model4.jpg";
-import beachView from "../assets/Images/beach-view.jpg";
-import friends from "../assets/Images/friends.jpg";
-import ladyWeaving from "../assets/Images/lady_weaving.jpg";
-import leatherStraw from "../assets/Images/learther-straw-hat.jpg";
+// Helper function to get Google Drive image URL using direct Googleusercontent format
+const getGoogleDriveImageUrl = (fileId) => {
+  // Use direct Googleusercontent URL format for better reliability
+  return `https://lh3.googleusercontent.com/d/${fileId}=w1200`;
+};
 
 const slides = [
   {
-    image: model1,
+    image: getGoogleDriveImageUrl("1yV_Nt0hfTTk2QxGQVtQrUCdE6Zjj9fsk"),
     alt: "Model showcasing Sirahat products",
     title: "Elegant Style",
     description: "Discover our premium collection"
   },
   {
-    image: model2,
+    image: getGoogleDriveImageUrl("1ETS1teZeENTItKzLomaVZYZcyEViwqvJ"),
     alt: "Model with straw hat",
     title: "Summer Collection",
     description: "Perfect for beach days"
   },
   {
-    image: model3,
+    image: getGoogleDriveImageUrl("1UgVBQ8rqhWpd_NONZUTOtWKTFKQEvfn5"),
     alt: "Model with leather accessories",
     title: "Leather Craft",
     description: "Handcrafted with care"
   },
   {
-    image: model4,
+    image: getGoogleDriveImageUrl("15FHmS5shL5YZ5CAGFgT5OsZ_BuyRSLfS"),
     alt: "Model with beach accessories",
     title: "Beach Essentials",
     description: "Your perfect beach companion"
   },
   {
-    image: beachView,
+    image: getGoogleDriveImageUrl("1N8-A1_IdWTdzg_PEugdp1iaRz2LhtTjp"),
     alt: "Beach view with Sirahat products",
     title: "Beach Lifestyle",
     description: "Embrace the coastal life"
   },
   {
-    image: friends,
+    image: getGoogleDriveImageUrl("19m16Eh_dCBsU2AodfGAzH5CFJgesYLca"),
     alt: "Friends enjoying beach time",
     title: "Share Moments",
     description: "Create memories together"
   },
   {
-    image: ladyWeaving,
+    image: getGoogleDriveImageUrl("1F43btTyVALlzt9CY5dI-xlOaHO6tuiDw"),
     alt: "Traditional weaving process",
     title: "Artisan Craft",
     description: "Handmade with tradition"
   },
   {
-    image: leatherStraw,
+    image: getGoogleDriveImageUrl("1DwM0pT57QZM4vP78yXFc0ylGDw00DzdM"),
     alt: "Leather and straw combination",
     title: "Premium Materials",
     description: "Quality meets style"
@@ -65,6 +61,7 @@ const slides = [
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
     let interval;
@@ -91,6 +88,24 @@ export default function Carousel() {
     setIsAutoPlaying(false);
   };
 
+  const handleImageError = (index, imageUrl) => {
+    console.error(`Carousel image ${index} failed to load:`, imageUrl);
+    setImageErrors(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleImageLoad = (index) => {
+    console.log(`Carousel image ${index} loaded successfully`);
+  };
+
+  const getImageUrl = (slide, index) => {
+    if (imageErrors[index]) {
+      // Fallback to thumbnail format if direct Googleusercontent fails
+      const fileId = slide.image.split('d/')[1].split('=')[0];
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`;
+    }
+    return slide.image;
+  };
+
   return (
     <div className="relative w-full overflow-hidden bg-white py-8">
       {/* Main Carousel */}
@@ -103,9 +118,11 @@ export default function Carousel() {
             }`}
           >
             <img
-              src={slide.image}
+              src={getImageUrl(slide, index)}
               alt={slide.alt}
               className="w-full h-full object-cover"
+              onError={() => handleImageError(index, slide.image)}
+              onLoad={() => handleImageLoad(index)}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
               <h3 className="text-2xl md:text-3xl font-bold mb-2">{slide.title}</h3>
