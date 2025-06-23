@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import Header from './Header';
 
 export default function Layout() {
@@ -19,10 +19,10 @@ export default function Layout() {
             <div>
               <h4 className="text-lg font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="/products" className="text-gray-300 hover:text-white">Products</a></li>
-                <li><a href="/blog" className="text-gray-300 hover:text-white">Blog</a></li>
-                <li><a href="/about" className="text-gray-300 hover:text-white">About Us</a></li>
-                <li><a href="/contact" className="text-gray-300 hover:text-white">Contact</a></li>
+                <li><Link to="/products" className="text-gray-300 hover:text-white">Products</Link></li>
+                <li><Link to="/blog" className="text-gray-300 hover:text-white">Blog</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-white">About Us</Link></li>
+                <li><Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link></li>
               </ul>
             </div>
             <div>
